@@ -23,8 +23,10 @@ public class Login {
     @FindBy (xpath = "//a[@class='btn btn-default']")
     WebElement btnForgotPassword;
 
+    WebDriver driver;
     public Login(WebDriver driver)
     {
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

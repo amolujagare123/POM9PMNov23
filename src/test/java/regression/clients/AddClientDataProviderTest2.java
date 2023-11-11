@@ -1,8 +1,10 @@
-package clients;
+package regression.clients;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Login;
 import pages.Menu;
@@ -11,8 +13,9 @@ import pages.clients.AddClient;
 import java.io.IOException;
 
 import static util.ConfigReader.*;
+import static util.ForDataProvider.readDataFromExcel;
 
-public class AddClientTest {
+public class AddClientDataProviderTest2 {
     WebDriver driver ;
     @BeforeClass
     public void doLogin() throws IOException {
@@ -27,34 +30,18 @@ public class AddClientTest {
         login.clickBtnLogin();
     }
 
-    @Test
-    public void addClientTest()
+    @Test (dataProvider = "getData")
+    public void addClientTest(String name, String surname, String language,
+                              String address1, String address2, String city,
+                              String state, String zip, String country,
+                              String gender, String birthDate, String phone,
+                              String fax, String mobile, String email,
+                              String web, String vatId, String taxCode,String expected,
+                              String failureMessage)
     {
         Menu menu = new Menu(driver);
         menu.clickAddClient();
-
         AddClient addClient = new AddClient(driver);
-        // Sample data for each field
-        String name = "John";
-        String surname = "Doe";
-        String language = "TC9876";
-        String address1 = "123 Main St";
-        String address2 = "Apt 456";
-        String city = "Cityville";
-        String state = "State";
-        String zip = "12345";
-        String country = "India";
-        String gender = "Male";
-        String birthDate = "05/09/1985";
-        String phone = "123-456-7890";
-        String fax = "987-654-3210";
-        String mobile = "555-555-5555";
-        String email = "john.doe@example.com";
-        String web = "https://example.com";
-        String vatId = "VAT12345";
-        String taxCode = "TC9876";
-
-
 
 
 
@@ -80,7 +67,19 @@ public class AddClientTest {
         addClient.clickSaveButton();
 
 
+        String actual = driver.getCurrentUrl();
+
+        System.out.println("expected="+expected);
+        System.out.println("actual="+actual);
+
+        boolean result = actual.contains(expected);
+
+        Assert.assertTrue(result,failureMessage);
+
     }
 
-
+    @DataProvider
+    public Object[][] getData() throws IOException {
+        return readDataFromExcel("Data/invoicePlane.xlsx","Sheet2");
+    }
 }

@@ -1,7 +1,9 @@
-package clients;
+package regression.clients;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,6 +14,7 @@ import pages.clients.AddClient;
 import java.io.IOException;
 
 import static util.ConfigReader.*;
+import static util.ForDataProvider.readDataFromExcel;
 
 public class AddClientDataProviderTest {
     WebDriver driver ;
@@ -29,12 +32,17 @@ public class AddClientDataProviderTest {
     }
 
     @Test (dataProvider = "getData")
-    public void addClientTest(String name, String surname, String language, String address1, String address2, String city, String state, String zip, String country, String gender, String birthDate, String phone, String fax, String mobile, String email, String web, String vatId, String taxCode)
+    public void addClientTest(String name, String surname, String language,
+                              String address1, String address2, String city,
+                              String state, String zip, String country,
+                              String gender, String birthDate, String phone,
+                              String fax, String mobile, String email,
+                              String web, String vatId, String taxCode,String expected,
+                              String xpathActual,String failureMessage)
     {
         Menu menu = new Menu(driver);
         menu.clickAddClient();
         AddClient addClient = new AddClient(driver);
-
 
 
 
@@ -60,11 +68,23 @@ public class AddClientDataProviderTest {
         addClient.clickSaveButton();
 
 
+        String actual ="";
+        try {
+            actual = driver.findElement(By.xpath(xpathActual)).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+        System.out.println("expected="+expected);
+        System.out.println("actual="+actual);
+
+        Assert.assertEquals(actual,expected,failureMessage);
+
     }
 
     @DataProvider
-    public Object[][] getData()
-    {
-
+    public Object[][] getData() throws IOException {
+        return readDataFromExcel("Data/invoicePlane.xlsx","Sheet1");
     }
 }

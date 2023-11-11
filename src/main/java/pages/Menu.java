@@ -10,7 +10,7 @@ public class Menu {
    /* @FindBy(xpath = "//a[normalize-space()='Dashboard']")
     WebElement dashboard;
     @FindBy(xpath = "//span[normalize-space()='Clients']")
-    WebElement clients;
+    WebElement regression.clients;
     @FindBy(xpath = "//a[contains(text(),'Add Client')]")
     WebElement addClient;
     @FindBy(xpath = "//a[normalize-space()='View Clients']")
@@ -22,7 +22,7 @@ public class Menu {
     @FindBy(xpath = "//a[normalize-space()='View Quotes']")
     WebElement viewQuotes;*/
 
-    private WebDriver driver;
+     WebDriver driver;
 
     @FindBy(xpath = "//a[normalize-space()='Dashboard']")
     private WebElement dashboard;

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AddClient {
-    private WebDriver driver;
+    WebDriver driver;
 
     // Define WebElements using the given XPaths
     @FindBy(xpath = "//input[@id='client_name']")

@@ -1,0 +1,4 @@
+name,surname,language,address1,address2,city,state,zip,country,gender,birthdate,phone,fax,mobile,email,web,vatId,taxCode
+John,Doe,English,123 Main St,Suite 456,Los Angeles,CA,90001,USA,Male,1980-05-15,555-555-5555,555-555-5556,555-555-5557,johndoe@example.com,www.johndoe.com,123456789,ABCD12345
+Jane,Smith,French,456 Elm St,,New York,NY,10001,USA,Female,1985-09-20,123-456-7890,,789-123-4567,janesmith@example.com,www.janesmith.com,987654321,WXYZ67890
+Robert,Johnson,Spanish,789 Oak St,,Chicago,IL,60601,USA,Male,1990-12-10,333-333-3333,,333-333-3334,robertjohnson@example.com,www.robertjohnson.com,543216789,PQRS54321
