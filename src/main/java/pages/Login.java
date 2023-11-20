@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,16 +11,25 @@ public class Login {
     WebElement element  = driver.findElement(By.xpath("//input[@name='email']"));*/
 
     @FindBy (xpath = "//input[@name='email']")
-    WebElement txtUsername;
+    public WebElement txtUsername;
 
     @FindBy (xpath = "//input[@name='password']")
-    WebElement txtPassword;
+    public WebElement txtPassword;
 
     @FindBy (xpath = "//button[@type='submit']")
-    WebElement btnLogin;
+    public WebElement btnLogin;
 
     @FindBy (xpath = "//a[@class='btn btn-default']")
-    WebElement btnForgotPassword;
+    public WebElement btnForgotPassword;
+
+    @FindBy(xpath = "//label[@for='email']")
+    public WebElement lblEmail;
+
+    @FindBy(xpath = "//label[@for='password']")
+    public WebElement lblPassword;
+
+    @FindBy(xpath = "//img[@class='login-logo img-responsive']")
+    public WebElement logoIcon;
 
     WebDriver driver;
     public Login(WebDriver driver)
