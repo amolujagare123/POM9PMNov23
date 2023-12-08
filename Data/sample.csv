@@ -1,0 +1,4 @@
+Client Name,Client Surname,Language,Street Address 1,Street Address 2,City,State,Zip Code,Country,Gender,Birth Date,Phone Number,Fax Number,Mobile Number,Email Address,Web Address,VAT ID,Taxes Code
+John,Doe,English,123 Main St,Apt 101,New York,NY,10001,India,Female,12/02/1985,1234567890,9876543210,555-555-5555,john.doe@example.com,https://example.com,VAT123,TC456
+Emily,Smith,Spanish,456 Oak St,Suite 202,Madrid,MD,28001,Spain,Female,05/14/1990,9876543210,1234567890,666-666-6666,emily.smith@example.com,https://smithco.es,VAT456,TC789
+Michael,Johnson,French,789 Maple Ln,Unit 301,Paris,PA,75001,France,Male,09/30/1980,5558889999,9998885555,777-777-7777,michael.johnson@example.com,https://johnsoncorp.fr,VAT789,TC123
